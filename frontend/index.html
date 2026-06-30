@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco Lux</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">L</span>
+        <span class="logo-text">Banco<strong>Lux</strong></span>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn active" onclick="mostrarAba('contas')">Contas</button>
+        <button class="nav-btn" onclick="mostrarAba('criar')">Nova Conta</button>
+        <button class="nav-btn" onclick="mostrarAba('saque')">Saque</button>
+        <button class="nav-btn" onclick="mostrarAba('transferencia')">Transferência</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Contas ── -->
+    <section class="card aba" id="aba-contas">
+      <div class="card-header-row">
+        <h2 class="card-title">Contas</h2>
+        <button class="btn btn-ghost" onclick="listarContas()">↻ Atualizar</button>
+      </div>
+      <div id="lista-contas" class="conta-list">
+        <p class="empty-state">Nenhuma conta criada ainda.</p>
+      </div>
+    </section>
+
+    <!-- ── Criar Conta ── -->
+    <section class="card aba oculto" id="aba-criar">
+      <h2 class="card-title">Nova Conta</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="titular">Titular</label>
+          <input type="text" id="titular" placeholder="Nome completo" />
+        </div>
+        <div class="field">
+          <label for="tipo">Tipo de conta</label>
+          <select id="tipo">
+            <option value="corrente">Corrente</option>
+            <option value="poupanca">Poupança</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="saldo-inicial">Saldo inicial (R$)</label>
+          <input type="number" id="saldo-inicial" placeholder="0,00" min="0" step="0.01" />
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="criarConta()">Criar conta</button>
+      <div id="resultado-criar" class="resultado"></div>
+    </section>
+
+    <!-- ── Saque ── -->
+    <section class="card aba oculto" id="aba-saque">
+      <h2 class="card-title">Saque</h2>
+      <div class="info-pill corrente">Conta Corrente: tarifa de R$ 1,00 por saque</div>
+      <div class="info-pill poupanca">Conta Poupança: sem tarifa </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="saque-id">ID da conta</label>
+          <input type="text" id="saque-id" placeholder="Ex: a1b2c3d4" />
+        </div>
+        <div class="field">
+          <label for="saque-valor">Valor (R$)</label>
+          <input type="number" id="saque-valor" placeholder="0,00" min="0.01" step="0.01" />
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="sacar()">Sacar</button>
+      <div id="resultado-saque" class="resultado"></div>
+    </section>
+
+    <!-- ── Transferência ── -->
+    <section class="card aba oculto" id="aba-transferencia">
+      <h2 class="card-title">Transferência <span class="tag-diferencial">diferencial</span></h2>
+      <div class="info-pill corrente">Conta Corrente: tarifa de R$ 1,00 por transferência</div>
+      <div class="info-pill poupanca">Conta Poupança: sem tarifa</div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="trans-origem">ID da conta origem</label>
+          <input type="text" id="trans-origem" placeholder="Ex: a1b2c3d4" />
+        </div>
+        <div class="field">
+          <label for="trans-destino">ID da conta destino</label>
+          <input type="text" id="trans-destino" placeholder="Ex: e5f6g7h8" />
+        </div>
+        <div class="field">
+          <label for="trans-valor">Valor (R$)</label>
+          <input type="number" id="trans-valor" placeholder="0,00" min="0.01" step="0.01" />
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="transferir()">Transferir</button>
+      <div id="resultado-transferencia" class="resultado"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Banco Lux · Por: Gisele Bittencourt Correia</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>listarContas();</script>
+</body>
+</html>
