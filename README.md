@@ -26,8 +26,10 @@ Não há dependências no frontend — é HTML/CSS/JS puro, sem necessidade de i
 ```
 cd backend
 pip install -r requirements.txt
-python app.py
+py app.py
 ```
+
+> **Nota (Windows):** se o comando `py` não funcionar na sua máquina, use `python app.py` ou `python3 app.py` no lugar.
 
 A API sobe em **http://localhost:5000**.
 
