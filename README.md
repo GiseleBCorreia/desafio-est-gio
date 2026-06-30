@@ -1,4 +1,4 @@
-# Minha Solução — Banco Lux
+# Minha Solução - Banco Lux
 
 ## Stack
 
@@ -38,7 +38,7 @@ A API sobe em **http://localhost:5000**.
 frontend/index.html
 ```
 
-Não é necessário nenhum servidor adicional — pode ser aberto diretamente clicando duas vezes no arquivo, ou com a extensão "Live Server" do VS Code.
+Não é necessário nenhum servidor adicional pode ser aberto diretamente clicando duas vezes no arquivo, ou com a extensão "Live Server" do VS Code.
 
 ⚠️ **Importante:** o backend precisa estar rodando antes de usar o frontend, já que o frontend consome a API em `http://localhost:5000`.
 
@@ -52,9 +52,9 @@ Não é necessário nenhum servidor adicional — pode ser aberto diretamente cl
 
 ## Observações
 
-- Os dados são armazenados em memória (sem banco de dados), conforme escopo do desafio — reiniciar o backend limpa as contas criadas.
+- Os dados são armazenados em memória (sem banco de dados), conforme escopo do desafio, reiniciar o backend limpa as contas criadas.
 - Regras de negócio implementadas e testadas:
   - **R1 — Conta Corrente:** tarifa de R$ 1,00 por saque/transferência; saldo pode ficar negativo até o limite de R$ 500,00 (valor + tarifa não podem ultrapassar esse limite).
   - **R2 — Conta Poupança:** sem tarifa; saldo nunca pode ficar negativo.
-- A transferência (diferencial) foi implementada e retorna o nome dos titulares de origem/destino, em vez de expor saldos das contas — opção de design para não vazar informação sensível na resposta.
+- A transferência foi implementada e retorna o nome dos titulares de origem/destino..
 - A lógica de negócio está isolada em `backend/models.py` (classe `Conta`), separada das rotas HTTP em `backend/app.py`, para manter responsabilidades bem definidas.
