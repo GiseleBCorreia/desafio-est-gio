@@ -26,7 +26,7 @@ Não há dependências no frontend — é HTML/CSS/JS puro, sem necessidade de i
 ```
 cd backend
 pip install -r requirements.txt
-python app.py
+py app.py
 ```
 
 A API sobe em **http://localhost:5000**.
